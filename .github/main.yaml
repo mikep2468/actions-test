@@ -1,0 +1,28 @@
+name: Mike's Action Runner
+run-name: ${{ github.actor}} triggered this Action Runner"
+
+on: push
+
+jobs:
+  my-first-set-of-steps:
+    runs-on: ubuntu-latest
+    steps:
+      - run: ls -al
+      - run: echo "Hello, world!"
+      - run: echo "This job was triggered by ${{ github.actor}}"
+      - run: echo "This job is running on a ${{ runner.os }} server hosted by GitHub!"
+      - run: echo "The name of your branch is ${{ github.ref }} and your repository is ${{ github.repository }}."
+      - run: echo "The event type that triggered this action was ${{ github.event_name }}."
+      - run: echo "The commit message was ${{ github.event.head_commit.message }}."
+      - uses: actions/checkout@v3
+      - run: ls -al
+      - run: node --version
+      - uses: actions/setup-node@v3
+        with:
+          node-version: '14'
+      - run: node --version
+      - name: Install NPM packages
+        run: yarn install --frozen-lockfile
+        
+      
+
