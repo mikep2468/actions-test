@@ -1,5 +1,4 @@
 name: Mike's Action Runner
-run-name: workflow trigged by ${{ github.actor}} via ${{ github.event_name }}
 
 on: push
 
