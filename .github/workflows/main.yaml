@@ -27,8 +27,10 @@ jobs:
   write-back-to-repo:
     runs-on: ubuntu-latest
     steps:
+      - run: ls -al
       - uses: actions/checkout@v3
       - run: |
+          echo "writing to file..."
           date > generated.txt
           git config user.name github-actions
           git config user.email github-actions@github.com
